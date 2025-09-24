@@ -28,7 +28,7 @@
 /.vs
 /bld/
 /build/
-/build-*/
+/build_*/
 /stats/
 __pycache__
 Debug

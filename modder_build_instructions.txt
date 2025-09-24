@@ -1,0 +1,21 @@
+
+We have to build manually as we need bopth win32 and x64 versions of libs.  
+We also dont want to have to use NASM and Strwberry Perl in the github runner as it causes all sorts of issues
+
+
+Step 1: Generate the x64 Project
+Clean Slate: Ensure the C:\Development\modder_runtime\deps\curl\build_x64 directory is empty.
+Navigate: cd C:\Development\modder_runtime\deps\curl\build_x64
+Run the x64 CMake Command:
+
+cmake .. -G "Visual Studio 17 2022" -A x64 -DCMAKE_USE_OPENSSL=ON -DOPENSSL_INCLUDE_DIR="C:\Development\modder_runtime\deps\openssl\include" -DOPENSSL_SSL_LIBRARY="C:\Development\modder_runtime\vendor\x64\Release\libssl.lib" -DOPENSSL_CRYPTO_LIBRARY="C:\Development\modder_runtime\vendor\x64\Release\libcrypto.lib" -DBUILD_SHARED_LIBS=OFF -DCURL_USE_SCHANNEL=OFF -DCURL_USE_LIBPSL=OFF -DCURL_USE_ZLIB=OFF -DCURL_USE_BROTLI=OFF -DCURL_USE_ZSTD=OFF -DCURL_USE_NGHTTP2=OFF -DCURL_USE_LIBIDN2=OFF
+
+
+Step 2: Generate the Win32 Project
+Clean Slate: Ensure the C:\Development\modder_runtime\deps\curl\build_win32 directory is empty.
+Navigate: cd C:\Development\modder_runtime\deps\curl\build_win32
+Run the Win32 CMake Command:
+
+cmake .. -G "Visual Studio 17 2022" -A Win32 -DCMAKE_USE_OPENSSL=ON -DOPENSSL_INCLUDE_DIR="C:\Development\modder_runtime\deps\openssl\include" -DOPENSSL_SSL_LIBRARY="C:\Development\modder_runtime\vendor\Win32\Release\libssl.lib" -DOPENSSL_CRYPTO_LIBRARY="C:\Development\modder_runtime\vendor\Win32\Release\libcrypto.lib" -DBUILD_SHARED_LIBS=OFF -DCURL_USE_SCHANNEL=OFF -DCURL_USE_LIBPSL=OFF -DCURL_USE_ZLIB=OFF -DCURL_USE_BROTLI=OFF -DCURL_USE_ZSTD=OFF -DCURL_USE_NGHTTP2=OFF -DCURL_USE_LIBIDN2=OFF
+
+
